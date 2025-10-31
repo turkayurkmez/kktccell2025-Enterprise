@@ -33,7 +33,7 @@ namespace Catalog.Infrastructure.Repositories
             return Task.FromResult(products.AsEnumerable());
         }
 
-        public Task<Product> GetById(int id)
+        public Task<Product> GetById(Guid id)
         {
             throw new NotImplementedException();
         }

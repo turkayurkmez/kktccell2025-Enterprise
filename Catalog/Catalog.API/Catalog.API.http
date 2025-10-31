@@ -4,3 +4,13 @@ GET {{Catalog.API_HostAddress}}/api/products
 Accept: application/json
 
 ###
+
+POST {{Catalog.API_HostAddress}}/api/products/DiscountPrice
+Content-Type: application/json
+
+{
+  "productId": "550e8400-e29b-41d4-a716-446655440000",
+  "discountRate": 0.15
+}
+
+###

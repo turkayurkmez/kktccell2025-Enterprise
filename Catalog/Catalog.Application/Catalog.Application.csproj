@@ -8,10 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Catalog.Entities\Catalog.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Products\Commands\CreateNew\" />
+    <Folder Include="Features\Products\Commands\UpdateExisting\" />
+    <Folder Include="Features\Products\Queries\" />
   </ItemGroup>
 
 </Project>

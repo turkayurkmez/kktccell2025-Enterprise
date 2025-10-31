@@ -12,7 +12,7 @@ namespace Catalog.Application.Contracts
 
     {
         Task<IEnumerable<T>> GetAll();
-        Task<T> GetById(int id);
+        Task<T> GetById(TId id);
 
         Task Create(T entity);
         Task Update(T entity);

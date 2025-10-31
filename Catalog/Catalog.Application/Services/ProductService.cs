@@ -11,6 +11,13 @@ using System.Threading.Tasks;
 
 namespace Catalog.Application.Services
 {
+    /*
+     * SORU:
+     * 
+     * Sürekli dinamik yani her ihtiyaçta yeni fonksiyon eklemek bu sınıfı şişmanlatır. Bu yaklaşım, horizontal (yatay) genişleme olarak bilinir.
+     * 
+     * ÇOZÜM: Vertical (dikey) genişleme.
+     */
     public class ProductService : IProductService
     {
         //Uygulama, Ürün varlığı ile .............. yapıyor.

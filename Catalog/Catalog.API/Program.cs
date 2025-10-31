@@ -1,4 +1,5 @@
 using Catalog.Application.Contracts;
+using Catalog.Application.Features.Products.Commands.DiscountPrice;
 using Catalog.Application.Services;
 using Catalog.Infrastructure.Repositories;
 
@@ -12,6 +13,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
+builder.Services.AddMediatR(config => {
+    config.RegisterServicesFromAssemblyContaining<DiscountPriceRequest>();
+});
 
 var app = builder.Build();
 
