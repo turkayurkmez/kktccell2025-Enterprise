@@ -1,4 +1,5 @@
 ﻿using Catalog.Application.DataTransferObjects;
+using Catalog.Application.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,18 @@ namespace Catalog.Application.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductSummaryResponse> GetProductsForMainPage()
+        public ProductsResponseResult GetProductsForMainPage()
         {
-            return new List<ProductSummaryResponse>()
-            {
-                new ProductSummaryResponse(1,"Falanca Ürün A", "Açıklama A1", 1,string.Empty),
-                new ProductSummaryResponse(2,"Falanca Ürün B", "Açıklama A2", 1,string.Empty),
-                new ProductSummaryResponse(3,"Falanca Ürün C", "Açıklama A3", 1,string.Empty),
-                new ProductSummaryResponse(4,"Falanca Ürün D", "Açıklama A4", 1,string.Empty),
+            //return new List<ProductSummaryResponse>()
+            //{
+            //    new ProductSummaryResponse(Guid.NewGuid(),"Falanca Ürün A", "Açıklama A1", 1,string.Empty),
+            //    new ProductSummaryResponse(Guid.NewGuid(),"Falanca Ürün B", "Açıklama A2", 1,string.Empty),
+            //    new ProductSummaryResponse(Guid.NewGuid(),"Falanca Ürün C", "Açıklama A3", 1,string.Empty),
+            //    new ProductSummaryResponse(Guid.NewGuid(),"Falanca Ürün D", "Açıklama A4", 1,string.Empty),
 
-            };
+            //};
+
+            throw new NotImplementedException();
         }
     }
 }

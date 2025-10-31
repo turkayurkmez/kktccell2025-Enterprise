@@ -1,4 +1,5 @@
 ﻿using Catalog.Application.DataTransferObjects;
+using Catalog.Application.Results;
 using Catalog.Entities;
 
 namespace Catalog.Application.Services
@@ -6,8 +7,8 @@ namespace Catalog.Application.Services
     public interface IProductService
     {
         void DiscountPrice(int productId, decimal discountRate);
-        
-        IEnumerable<ProductSummaryResponse> GetProductsForMainPage();
+
+        ProductsResponseResult GetProductsForMainPage();
 
 
     }

@@ -1,4 +1,6 @@
+using Catalog.Application.Contracts;
 using Catalog.Application.Services;
+using Catalog.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
 
 var app = builder.Build();
 
