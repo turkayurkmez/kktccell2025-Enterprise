@@ -17,17 +17,17 @@ namespace Catalog.Application.Features.Products.Commands.DiscountPrice
             this.productRepository = productRepository;
         }
 
-        public Task<DiscountPriceCommandResponse> Handle(DiscountPriceRequest request)
-        {
-            //db işlemleri....
-            var product = productRepository.GetById(request.ProductId);
-            product.Result.ApplyDiscount(request.discountRate);
+        //public Task<DiscountPriceCommandResponse> Handle(DiscountPriceRequest request)
+        //{
+        //    //db işlemleri....
+        //    var product = productRepository.GetById(request.ProductId);
+        //    product.Result.ApplyDiscount(request.discountRate);
 
-            productRepository.Update(product.Result);
+        //    productRepository.Update(product.Result);
 
-            return Task.FromResult(new DiscountPriceCommandResponse(true, "Ürün fiyatında indirim yapıldı"));
+        //    return Task.FromResult(new DiscountPriceCommandResponse(true, "Ürün fiyatında indirim yapıldı"));
 
-        }
+        //}
 
         public async Task<DiscountPriceCommandResponse> Handle(DiscountPriceRequest request, CancellationToken cancellationToken)
         {

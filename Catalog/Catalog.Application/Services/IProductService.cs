@@ -6,6 +6,8 @@ namespace Catalog.Application.Services
 {
     public interface IProductService
     {
+
+        //Ben, product nesnesiyle ................ yaparım  
         void DiscountPrice(int productId, decimal discountRate);
 
         ProductsResponseResult GetProductsForMainPage();

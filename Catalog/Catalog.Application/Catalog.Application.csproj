@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Features\Products\Commands\CreateNew\" />
     <Folder Include="Features\Products\Commands\UpdateExisting\" />
-    <Folder Include="Features\Products\Queries\" />
   </ItemGroup>
 
 </Project>
