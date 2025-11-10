@@ -9,7 +9,7 @@ namespace Catalog.Application.Features.Products.Queries.SearchByName
 {
     public  record SearchByNameRequest(string Name) : IRequest<SearchByNameResponse>;
 
-    public record SearchByNameResult(int  ProductId, string Name, string? ImageUrl);
+    public record SearchByNameResult(Guid Id, string Name, string? ImageUrl);
 
     public record SearchByNameResponse(IEnumerable<SearchByNameResult> Results, string? Message, bool IsSuccess);
 

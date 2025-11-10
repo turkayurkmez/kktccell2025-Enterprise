@@ -8,8 +8,8 @@ namespace Catalog.Entities.Common
 {
     public abstract class Entity<T> where T: struct, IEquatable<T> 
     {
-        public T Id { get; protected set; }
-        public DateTime CreatedDate { get; protected set; }
+        public T Id { get; init; }
+        public DateTime CreatedDate { get; init; }
         public DateTime? UpdatedDate { get; protected set; }
 
         protected Entity()

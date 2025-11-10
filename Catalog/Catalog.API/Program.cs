@@ -1,7 +1,9 @@
 using Catalog.Application.Contracts;
 using Catalog.Application.Features.Products.Commands.DiscountPrice;
 using Catalog.Application.Services;
+using Catalog.Infrastructure.Data;
 using Catalog.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +14,16 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddMediatR(config => {
     config.RegisterServicesFromAssemblyContaining<DiscountPriceRequest>();
+   
 });
+
+var connectionString = builder.Configuration.GetConnectionString("db");
+builder.Services.AddDbContext<CatalogDbContext>(option => option.UseSqlServer(connectionString));
+
+
 
 var app = builder.Build();
 

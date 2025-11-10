@@ -9,8 +9,10 @@ POST {{Catalog.API_HostAddress}}/api/products/DiscountPrice
 Content-Type: application/json
 
 {
-  "productId": "550e8400-e29b-41d4-a716-446655440000",
+  "productId": "53ad4035-c80c-4595-aae1-c9ce0505bb4b",
   "discountRate": 0.15
 }
 
 ###
+GET {{Catalog.API_HostAddress}}/api/products/dell
+Accept: application/json

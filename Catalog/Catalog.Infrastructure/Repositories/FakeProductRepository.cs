@@ -10,6 +10,19 @@ namespace Catalog.Infrastructure.Repositories
 {
     public class FakeProductRepository : IProductRepository
     {
+        private List<Product> products;
+        public FakeProductRepository()
+        {
+            //in-memory veri tutması için constructor içinde nesneyi oluşturdum:
+            products = new List<Product>()
+            {
+                new Product("Ürün A1","Desc A1",1,10,string.Empty,1),
+                new Product("Ürün A2","Desc A2",1,10,string.Empty,1),
+                new Product("Ürün A3","Desc A3",1,10,string.Empty,1),
+                new Product("Ürün A4","Desc A4",1,10,string.Empty,1),
+
+            };
+        }
         public Task Create(Product entity)
         {
             throw new NotImplementedException();
@@ -22,14 +35,7 @@ namespace Catalog.Infrastructure.Repositories
 
         public Task<IEnumerable<Product>> GetAll()
         {
-            var products = new List<Product>()
-            {
-                new Product("Ürün A1","Desc A1",1,10,string.Empty,1),
-                new Product("Ürün A2","Desc A2",1,10,string.Empty,1),
-                new Product("Ürün A3","Desc A3",1,10,string.Empty,1),
-                new Product("Ürün A3","Desc A4",1,10,string.Empty,1),
-
-            };
+           
             return Task.FromResult(products.AsEnumerable());
         }
 
@@ -45,7 +51,9 @@ namespace Catalog.Infrastructure.Repositories
 
         public Task<IEnumerable<Product>> SearchByName(string name)
         {
-            throw new NotImplementedException();
+            var findingProducts = products.Where(p => p.Name.ToLower().Contains(name.ToLower()));
+
+            return Task.FromResult(findingProducts);
         }
 
         public Task Update(Product entity)

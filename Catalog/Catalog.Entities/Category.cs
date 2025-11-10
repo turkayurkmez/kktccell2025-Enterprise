@@ -26,5 +26,8 @@ namespace Catalog.Entities
         }
 
 
+        //navigation property:
+        public ICollection<Product> Products { get; set; }
+
     }
 }

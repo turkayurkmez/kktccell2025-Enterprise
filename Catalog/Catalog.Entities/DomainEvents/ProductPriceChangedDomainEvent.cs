@@ -1,4 +1,5 @@
 ﻿using Catalog.Entities.Common;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.Entities.DomainEvents
 {
-    public class ProductPriceChangedDomainEvent: DomainEvent
+    public class ProductPriceChangedDomainEvent: DomainEvent, INotification
     {
         public Guid ProductId { get; private set; }
         public decimal OldPrice { get; private set; }

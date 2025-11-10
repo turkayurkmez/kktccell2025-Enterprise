@@ -1,4 +1,5 @@
 ﻿using Catalog.Application.Features.Products.Commands.DiscountPrice;
+using Catalog.Application.Features.Products.Queries.SearchByName;
 using Catalog.Application.Services;
 using Catalog.Infrastructure.Repositories;
 using MediatR;
@@ -27,8 +28,8 @@ namespace Catalog.API.Controllers
         public IActionResult Get()
         {
             //ProductService productService = new ProductService();
-            //  var products = productService.GetProductsForMainPage();
-            // return Ok(products);
+            //var products = productService.GetProductsForMainPage();
+            //return Ok(products);
             return Ok();
         }
 
@@ -44,6 +45,14 @@ namespace Catalog.API.Controllers
             var response =  await  mediator.Send(request);
 
             return Ok(response);    
+        }
+
+        [HttpGet("{name}")]
+        public async Task<IActionResult> Get(string name) { 
+            var request = new SearchByNameRequest(name);
+            var response = await mediator.Send(request);
+
+            return Ok(response);
         }
 
 
