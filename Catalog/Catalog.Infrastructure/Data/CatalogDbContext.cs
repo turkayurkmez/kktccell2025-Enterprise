@@ -115,13 +115,15 @@ namespace Catalog.Infrastructure.Data
 
 
 
-            var output = await base.SaveChangesAsync(cancellationToken);
-
             foreach (var @event in domainEvents)
             {
                 //olayı fırlat....
-                 mediator.Publish(@event, cancellationToken).ConfigureAwait(true);
+                await mediator.Publish(@event).ConfigureAwait(true);
             }
+
+            var output = await base.SaveChangesAsync(cancellationToken);
+
+           
 
 
             return output;

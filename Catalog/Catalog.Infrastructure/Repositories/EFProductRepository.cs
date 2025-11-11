@@ -24,9 +24,9 @@ namespace Catalog.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Product>> GetAll()
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            throw new NotImplementedException();
+            return await catalogDbContext.Products.ToListAsync();
         }
 
         public Task<Product> GetById(Guid id)

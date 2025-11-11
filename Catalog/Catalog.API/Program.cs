@@ -2,6 +2,7 @@ using Catalog.Application.Contracts;
 using Catalog.Application.Features.Products.Commands.DiscountPrice;
 using Catalog.Application.Services;
 using Catalog.Infrastructure.Data;
+using Catalog.Infrastructure.EventHandlers;
 using Catalog.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddMediatR(config => {
     config.RegisterServicesFromAssemblyContaining<DiscountPriceRequest>();
+    config.RegisterServicesFromAssemblyContaining<ProductPriceChangedEventHandler>();
    
 });
 

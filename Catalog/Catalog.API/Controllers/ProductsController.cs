@@ -1,5 +1,6 @@
 ﻿using Catalog.Application.Features.Products.Commands.DiscountPrice;
 using Catalog.Application.Features.Products.Queries.SearchByName;
+using Catalog.Application.Features.Products.Queries.SelectAll;
 using Catalog.Application.Services;
 using Catalog.Infrastructure.Repositories;
 using MediatR;
@@ -25,12 +26,15 @@ namespace Catalog.API.Controllers
 
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             //ProductService productService = new ProductService();
             //var products = productService.GetProductsForMainPage();
             //return Ok(products);
-            return Ok();
+
+            var request = new GetAllProductsRequest();
+            var response = await mediator.Send(request);
+            return Ok(response);
         }
 
         [HttpPost("[action]")]
@@ -42,6 +46,7 @@ namespace Catalog.API.Controllers
 
             //mediatR paketi ile:
 
+           //request.discountRate = 0.20m;
             var response =  await  mediator.Send(request);
 
             return Ok(response);    
@@ -53,6 +58,7 @@ namespace Catalog.API.Controllers
             var response = await mediator.Send(request);
 
             return Ok(response);
+
         }
 
 
