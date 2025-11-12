@@ -22,7 +22,7 @@ namespace Catalog.Infrastructure.EventHandlers
         public Task Handle(ProductPriceChangedDomainEvent notification, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"{notification.ProductId} id'li  Ürünün fiyatı güncellendi. Eski fiyat: {notification.OldPrice}, yeni fiyat ise {notification.NewPrice} oldu ");
-
+              //microservice'ler arasında event publish edilerek, Gereken yapılarla mesajlaşılır.
             return Task.CompletedTask;
         }
 
